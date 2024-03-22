@@ -24,7 +24,6 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
   );
 
   const changeMode = () => {
-    console.log("changeMode");
     setIsDarkMode(!isDarkMode);
     localStorage.setItem("isDarkMode", JSON.stringify(!isDarkMode));
   };

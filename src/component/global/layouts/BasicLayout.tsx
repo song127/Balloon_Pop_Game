@@ -19,7 +19,7 @@ const Layout = styled.div<BasicLayoutProps>`
     min-height: 100vh;
     max-height: max-content;
 
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     ${({ main, cross, backColor }) => css`
         justify-content: ${main};

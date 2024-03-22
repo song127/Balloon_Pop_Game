@@ -1,0 +1,93 @@
+import styled from "@emotion/styled";
+import COLORS from "@style/globalColor";
+import { useDarkMode } from "@hook/useDarkMode";
+import { useDarkModeValue } from "@hook/useDartModeValue";
+import BalloonSvg from "@assets/icons/ic-balloon.svg?react";
+import PopSvg from "@assets/icons/ic-pop.svg?react";
+import { useEffect, useState } from "react";
+import { FadeOutFrame, PopFrame } from "@util/animations";
+
+interface ItemProps {
+  isDarkMode: boolean;
+}
+
+interface BalloonProps {
+  key: number;
+  isVisible: boolean;
+  onClick: () => void;
+  isClicked: boolean;
+  setIsClicked: (isClicked: boolean) => void;
+}
+
+const Container = styled.div<ItemProps>`
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: ${({ isDarkMode }) =>
+    isDarkMode ? COLORS.dark_1 : COLORS.white};
+
+  &:hover {
+    .balloon-valid {
+      width: 50%;
+      height: 50%;
+    }
+  }
+`;
+
+const BalloonIcon = styled(BalloonSvg)<{ svgColor?: string }>`
+  width: 70%;
+  height: 70%;
+
+  path {
+    stroke: ${({ svgColor }) => svgColor};
+  }
+`;
+
+const PopIcon = styled(PopSvg)<{ svgColor?: string }>`
+  width: 70%;
+  height: 70%;
+
+  path {
+    stroke: ${({ svgColor }) => svgColor};
+  }
+
+  animation: ${PopFrame} 0.3s forwards, ${FadeOutFrame} 1s 0.8s forwards;
+`;
+
+export default function Balloon({
+  isVisible = false,
+  onClick,
+  isClicked,
+  setIsClicked,
+  ...props
+}: BalloonProps) {
+  const [poped, setPoped] = useState<boolean>(false);
+  const { isDarkMode } = useDarkMode();
+  const svgColor = useDarkModeValue(COLORS.dark_1, COLORS.white);
+
+  useEffect(() => {
+    if (isClicked) {
+      if (!isVisible) {
+        setPoped(true);
+        setTimeout(() => {
+          setPoped(false);
+        }, 2000);
+      }
+    }
+  }, [isVisible]);
+
+  return (
+    <Container isDarkMode={isDarkMode} key={props.key} onClick={onClick}>
+      {isVisible ? (
+        <BalloonIcon className={"balloon-valid"} svgColor={svgColor} />
+      ) : (
+        poped && <PopIcon svgColor={svgColor} />
+      )}
+    </Container>
+  );
+}
