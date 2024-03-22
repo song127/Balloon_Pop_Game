@@ -10,25 +10,22 @@ import Block from "@component/util/Block";
 import { useState } from "react";
 import { useDarkModeValue } from "./hook/useDartModeValue";
 import RectangleBtn from "@component/global/RectangleBtn";
+import BasicInput from "@component/global/BasicInput";
+import Row from "@component/util/Row";
+import { strDecode, strEncode } from "@util/helpers";
 
-const Title = styled.p<FontProps>`
+const Text1 = styled.p<FontProps>`
   ${({ color }) => FONTS.M26.withParams({ color })}
-`;
-
-const TestBtn = styled.button`
-  background-color: ${COLORS.dark_1};
-  color: ${COLORS.white};
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
 `;
 
 function App() {
   const { isDarkMode, changeMode } = useDarkMode();
-  const [encodedData, setEncodedData] = useState<string | null>("");
+  const [size, setSize] = useState<number>(0);
 
   const updateUrl = () => {
     const url = new URL(window.location.href);
+    const encodedData = strEncode(size.toString() + "-hello");
+    console.log(strDecode(encodedData));
     url.searchParams.set("data", encodedData || "");
     window.history.pushState({}, "", url.toString());
   };
@@ -38,26 +35,37 @@ function App() {
       <GlobalStyle />
       <BasicLayout>
         <Block h={20} />
-        <Title color={useDarkModeValue(COLORS.dark_1, COLORS.white)}>
-          Dark Mode{" "}
-        </Title>
-        <Block h={20} />
-        <SizedBox w={100} h={50}>
-          <RectangleBtn onClick={updateUrl}>
-            Hello
-          </RectangleBtn>
-        </SizedBox>
+        <Row>
+          <Text1 color={useDarkModeValue(COLORS.dark_1, COLORS.white)}>
+            Dark Mode{" "}
+          </Text1>
+
+          <Block w={20} />
+          <SizedBox w={50} h={25}>
+            <SwitchBtn
+              isOn={isDarkMode}
+              onClick={() => {
+                changeMode();
+              }}
+            />
+          </SizedBox>
+        </Row>
 
         <Block h={20} />
+        <Row>
+          <SizedBox w={110} h={50}>
+            <BasicInput
+              type="number"
+              value={size.toString()}
+              setValue={(value) => setSize(parseInt(value))}
+            />
+          </SizedBox>
 
-        <SizedBox w={50} h={25}>
-          <SwitchBtn
-            isOn={isDarkMode}
-            onClick={() => {
-              changeMode();
-            }}
-          />
-        </SizedBox>
+          <Block w={20} />
+          <SizedBox w={80} h={50}>
+            <RectangleBtn onClick={updateUrl}>Set!</RectangleBtn>
+          </SizedBox>
+        </Row>
       </BasicLayout>
     </>
   );

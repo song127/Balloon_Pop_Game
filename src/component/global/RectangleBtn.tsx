@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import COLORS from "@style/globalColor";
+import { FONTS } from "@style/globalFonts";
 
 interface ContainerProps {
   disabled: boolean;
@@ -25,32 +27,22 @@ const Container = styled.button<ContainerProps>`
   width: 100%;
   height: 100%;
 
+  background-color: ${COLORS.blue_1};
+
+  ${FONTS.M14.withParams({ color: COLORS.white })}
+
   transition: all 0.2s ease-in-out;
 
   ${({ disabled, round }) => css`
     cursor: ${disabled ? "auto" : "pointer"};
     border-radius: ${round};
   `}
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    ${({ disabled, round }) => css`
-      border-radius: ${round};
-      background-color: ${disabled ? "rgba(0, 0, 0, 0.2)" : "rgba(0, 0, 0, 0)"};
-    `}
-  }
 `;
+
 function RectangleBtn({
   onClick,
   active = true,
-  round = "0px",
+  round = "8px",
   ...props
 }: RectangleBtnProps) {
   return (

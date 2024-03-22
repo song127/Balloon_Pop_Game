@@ -38,6 +38,8 @@ const COLORS = {
 
   gray_1: Color("#9292AA"),
   gray_2: Color("#F6F7FC"),
+
+  blue_1: Color("#746FFF"),
 };
 
 export default COLORS;
