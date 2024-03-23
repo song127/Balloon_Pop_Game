@@ -14,6 +14,7 @@ import BasicInput from "@component/global/BasicInput";
 import Row from "@component/util/Row";
 import { strDecode, strEncode } from "@util/helpers";
 import ElasticGridLayout from "@component/global/layouts/GridLayout";
+import InnerLayout from "@component/global/layouts/InnerLayout";
 
 const Text1 = styled.p<FontProps>`
   ${({ color }) => FONTS.M26.withParams({ color })}
@@ -161,74 +162,78 @@ function App() {
     <>
       <GlobalStyle />
       <BasicLayout>
-        <Block h={20} />
-        <Row>
+        <InnerLayout>
+          <Block h={20} />
+          <Row>
+            <Text1 color={useDarkModeValue(COLORS.dark_1, COLORS.white)}>
+              Dark Mode{" "}
+            </Text1>
+
+            <Block w={20} />
+            <SizedBox w={50} h={25}>
+              <SwitchBtn
+                isOn={isDarkMode}
+                onClick={() => {
+                  changeMode();
+                }}
+              />
+            </SizedBox>
+          </Row>
+
+          <Block h={20} />
+          <Row>
+            <SizedBox w={110} h={50}>
+              <BasicInput
+                type="number"
+                value={sizeInput.toString()}
+                setValue={(value) => setSizeInput(parseInt(value))}
+              />
+            </SizedBox>
+
+            <Block w={20} />
+            <SizedBox w={80} h={50}>
+              <RectangleBtn
+                onClick={() =>
+                  setGame(false, 0, parseInt(sizeInput.toString()))
+                }>
+                {gameState === -1 ? "Start" : "Restart"}
+              </RectangleBtn>
+            </SizedBox>
+          </Row>
+
+          <Block h={20} />
+          <SizedBox w={80} h={50}>
+            <RectangleBtn onClick={copyLink}>Copy</RectangleBtn>
+          </SizedBox>
+
+          <Block h={20} />
           <Text1 color={useDarkModeValue(COLORS.dark_1, COLORS.white)}>
-            Dark Mode{" "}
+            {gameState === -1
+              ? "Start the game!"
+              : gameState === 0
+              ? "Playing"
+              : gameState === 1
+              ? "You Win!"
+              : "You Lose!"}
           </Text1>
 
-          <Block w={20} />
-          <SizedBox w={50} h={25}>
-            <SwitchBtn
-              isOn={isDarkMode}
-              onClick={() => {
-                changeMode();
-              }}
-            />
-          </SizedBox>
-        </Row>
-
-        <Block h={20} />
-        <Row>
-          <SizedBox w={110} h={50}>
-            <BasicInput
-              type="number"
-              value={sizeInput.toString()}
-              setValue={(value) => setSizeInput(parseInt(value))}
-            />
-          </SizedBox>
-
-          <Block w={20} />
-          <SizedBox w={80} h={50}>
-            <RectangleBtn
-              onClick={() => setGame(false, 0, parseInt(sizeInput.toString()))}>
-              {gameState === -1 ? "Start" : "Restart"}
-            </RectangleBtn>
-          </SizedBox>
-        </Row>
-
-        <Block h={20} />
-        <SizedBox w={80} h={50}>
-          <RectangleBtn onClick={copyLink}>Copy</RectangleBtn>
-        </SizedBox>
-
-        <Block h={20} />
-        <Text1 color={useDarkModeValue(COLORS.dark_1, COLORS.white)}>
-          {gameState === -1
-            ? "Start the game!"
-            : gameState === 0
-            ? "Playing"
-            : gameState === 1
-            ? "You Win!"
-            : "You Lose!"}
-        </Text1>
-
-        <Block h={20} />
-        {balloons.length > 0 && (
-          <SizedBox w={800} h={800}>
-            <ElasticGridLayout
-              size={size}
-              balloons={balloons}
-              setBalloons={setBalloons}
-              isClicked={isClicked}
-              setIsClicked={setIsClicked}
-              groupCounts={groupCounts}
-              setGroupCounts={setGroupCounts}
-              gameState={gameState}
-              setGameState={setGameState}
-            />
-          </SizedBox>
-        )}
+          <Block h={20} />
+          {balloons.length > 0 && (
+            <SizedBox w={800} h={800}>
+              <ElasticGridLayout
+                size={size}
+                balloons={balloons}
+                setBalloons={setBalloons}
+                isClicked={isClicked}
+                setIsClicked={setIsClicked}
+                groupCounts={groupCounts}
+                setGroupCounts={setGroupCounts}
+                gameState={gameState}
+                setGameState={setGameState}
+              />
+            </SizedBox>
+          )}
+        </InnerLayout>
       </BasicLayout>
     </>
   );
