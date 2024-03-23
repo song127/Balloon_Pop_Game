@@ -26,7 +26,7 @@ interface ElasticGridLayoutProps {
 const Container = styled.div<ContainerProps>`
   display: grid;
   width: 100%;
-  height: 100%;
+  height: max-content;
 
   gap: 3px;
   padding: 3px;
@@ -35,7 +35,7 @@ const Container = styled.div<ContainerProps>`
     css`
       background-color: ${backColor};
       grid-template-columns: repeat(${size}, 1fr);
-      grid-template-rows: repeat(${size}, 1fr);
+      /* grid-template-rows: repeat(${size}, 1fr); */
       user-select: ${state === 0 ? "all" : "none"};
     `}
 `;

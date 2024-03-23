@@ -21,17 +21,18 @@ interface BalloonProps {
 
 const Container = styled.div<ItemProps>`
   cursor: pointer;
+  aspect-ratio: 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 100%;
-  height: 100%;
+  height: auto;
   background-color: ${({ isDarkMode }) =>
     isDarkMode ? COLORS.dark_1 : COLORS.white};
 
-  &:hover {
+&:hover {
     .balloon-valid {
       width: 50%;
       height: 50%;
