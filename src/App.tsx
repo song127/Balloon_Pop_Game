@@ -77,6 +77,8 @@ function App() {
         const nowX = nowInfo[0];
         const nowY = nowInfo[1];
 
+        count++;
+
         for (let i = 0; i < 4; i++) {
           const nextX = nowX + dx[i];
           const nextY = nowY + dy[i];
@@ -93,7 +95,6 @@ function App() {
           }
 
           visited[nextY][nextX] = true;
-          count++;
           queue.push([nextX, nextY]);
         }
       }
