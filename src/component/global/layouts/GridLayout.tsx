@@ -57,6 +57,9 @@ export default function ElasticGridLayout({
     if (gameState !== 0) {
       return;
     }
+    if(!balloons[oldX][oldY]) {
+      return;
+    }
 
     const dx = [0, 1, 0, -1];
     const dy = [-1, 0, 1, 0];
