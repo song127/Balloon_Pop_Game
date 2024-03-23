@@ -219,19 +219,17 @@ function App() {
 
           <Block h={20} />
           {balloons.length > 0 && (
-            <SizedBox w={800} h={800}>
-              <ElasticGridLayout
-                size={size}
-                balloons={balloons}
-                setBalloons={setBalloons}
-                isClicked={isClicked}
-                setIsClicked={setIsClicked}
-                groupCounts={groupCounts}
-                setGroupCounts={setGroupCounts}
-                gameState={gameState}
-                setGameState={setGameState}
-              />
-            </SizedBox>
+            <ElasticGridLayout
+              size={size}
+              balloons={balloons}
+              setBalloons={setBalloons}
+              isClicked={isClicked}
+              setIsClicked={setIsClicked}
+              groupCounts={groupCounts}
+              setGroupCounts={setGroupCounts}
+              gameState={gameState}
+              setGameState={setGameState}
+            />
           )}
         </InnerLayout>
       </BasicLayout>
