@@ -56,10 +56,10 @@ function App() {
     setBalloons(balloons);
     updateUrl(state, size, balloons);
 
-    getPopCount(balloons);
+    getPopCount(size, balloons);
   };
 
-  const getPopCount = (balloons: boolean[][]) => {
+  const getPopCount = (size: number, balloons: boolean[][]) => {
     const visited = Array.from({ length: balloons.length }, () =>
       Array.from({ length: balloons.length }, () => false)
     );
@@ -77,8 +77,6 @@ function App() {
         const nowX = nowInfo[0];
         const nowY = nowInfo[1];
 
-        count++;
-
         for (let i = 0; i < 4; i++) {
           const nextX = nowX + dx[i];
           const nextY = nowY + dy[i];
@@ -95,6 +93,7 @@ function App() {
           }
 
           visited[nextY][nextX] = true;
+          count++;
           queue.push([nextX, nextY]);
         }
       }
