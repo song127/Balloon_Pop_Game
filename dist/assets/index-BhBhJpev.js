@@ -354,16 +354,17 @@ Error generating stack: `+o.message+`
   }
 `,H0=_e.div`
   cursor: pointer;
+  aspect-ratio: 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 100%;
-  height: 100%;
+  height: auto;
   background-color: ${({isDarkMode:e})=>e?q.dark_1:q.white};
 
-  &:hover {
+&:hover {
     .balloon-valid {
       width: 50%;
       height: 50%;
@@ -388,7 +389,7 @@ Error generating stack: `+o.message+`
 `;function K0({isVisible:e=!1,onClick:t,isClicked:n,...r}){const[l,o]=$.useState(!1),{isDarkMode:i}=Uu(),u=Er(q.dark_1,q.white);return $.useEffect(()=>{n&&(e||(o(!0),setTimeout(()=>{o(!1)},2e3)))},[e]),z.jsx(H0,{isDarkMode:i,onClick:t,children:e?z.jsx(W0,{className:"balloon-valid",svgcolor:u}):l&&z.jsx(Q0,{svgcolor:u})},r.key)}const Y0=_e.div`
   display: grid;
   width: 100%;
-  height: 100%;
+  height: max-content;
 
   gap: 3px;
   padding: 3px;
@@ -396,7 +397,7 @@ Error generating stack: `+o.message+`
   ${({backColor:e,size:t,state:n})=>It`
       background-color: ${e};
       grid-template-columns: repeat(${t}, 1fr);
-      grid-template-rows: repeat(${t}, 1fr);
+      /* grid-template-rows: repeat(${t}, 1fr); */
       user-select: ${n===0?"all":"none"};
     `}
 `;function G0({size:e,balloons:t,setBalloons:n,isClicked:r,setIsClicked:l,groupCounts:o,setGroupCounts:i,gameState:u,setGameState:s}){const d=Er(q.dark_1,q.white),m=(h,p)=>{if(u!==0||!t[h][p])return;const w=[0,1,0,-1],g=[-1,0,1,0];let y=0;const N=[...t],c=(a,f)=>{if(!(a<0||a>=e||f<0||f>=e||!N[a][f])){N[a][f]=!1,y++;for(let v=0;v<4;v++)c(a+w[v],f+g[v])}};if(c(h,p),l(!0),n(N),o.length!==0)if(y<o[o.length-1])s(2);else{o.pop();const a=[...o];i(a),a.length===0&&s(1)}};return z.jsx(Y0,{backColor:d,size:e,state:u,children:t.map((h,p)=>z.jsx(z.Fragment,{children:h.map((w,g)=>z.jsx(K0,{isVisible:w,onClick:()=>{m(p,g)},isClicked:r,setIsClicked:l},p+g))},p))})}const X0=_e.div`
