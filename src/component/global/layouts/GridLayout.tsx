@@ -2,11 +2,13 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import COLORS from "@style/globalColor";
 import { useDarkModeValue } from "@hook/useDartModeValue";
-import Balloon from "../Balloon";
+import Balloon from "@component/global/Balloon";
+import { Fragment } from "react/jsx-runtime";
 
 interface ContainerProps {
   backColor: string;
   size: number;
+  state: number;
 }
 
 interface ElasticGridLayoutProps {
@@ -29,11 +31,12 @@ const Container = styled.div<ContainerProps>`
   gap: 3px;
   padding: 3px;
 
-  ${({ backColor, size }) =>
+  ${({ backColor, size, state }) =>
     css`
       background-color: ${backColor};
       grid-template-columns: repeat(${size}, 1fr);
       grid-template-rows: repeat(${size}, 1fr);
+      user-select: ${state === 0 ? "all" : "none"};
     `}
 `;
 
@@ -51,7 +54,9 @@ export default function ElasticGridLayout({
   const backColor = useDarkModeValue(COLORS.dark_1, COLORS.white);
 
   const popBalloon = (oldX: number, oldY: number) => {
-    if(gameState !== 0) { return; }
+    if (gameState !== 0) {
+      return;
+    }
 
     const dx = [0, 1, 0, -1];
     const dy = [-1, 0, 1, 0];
@@ -98,9 +103,9 @@ export default function ElasticGridLayout({
   };
 
   return (
-    <Container backColor={backColor} size={size}>
+    <Container backColor={backColor} size={size} state={gameState}>
       {balloons.map((item, index) => (
-        <>
+        <Fragment key={index}>
           {item.map((subItem, subIndex) => (
             <Balloon
               key={index + subIndex}
@@ -112,7 +117,7 @@ export default function ElasticGridLayout({
               setIsClicked={setIsClicked}
             />
           ))}
-        </>
+        </Fragment>
       ))}
     </Container>
   );

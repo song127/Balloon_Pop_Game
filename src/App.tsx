@@ -30,7 +30,7 @@ function App() {
   const [sizeInput, setSizeInput] = useState<number>(0);
   const [balloons, setBalloons] = useState<boolean[][]>([]);
   const [groupCounts, setGroupCounts] = useState<number[]>([]);
-  const [gameState, setGameState] = useState<number>(0); // 0: playing, 1: win, 2: lose
+  const [gameState, setGameState] = useState<number>(-1); // -1: yet 0: playing, 1: win, 2: lose
 
   const setGame = (
     isLoad: boolean,
@@ -109,7 +109,10 @@ function App() {
       }
     }
 
-    setGroupCounts(newGroupCount.sort());
+    newGroupCount.sort((a, b) => {
+      return a - b;
+    });
+    setGroupCounts(newGroupCount);
   };
 
   const updateUrl = (
@@ -188,10 +191,8 @@ function App() {
           <Block w={20} />
           <SizedBox w={80} h={50}>
             <RectangleBtn
-              onClick={() =>
-                setGame(false, 0, parseInt(sizeInput.toString()))
-              }>
-              Reset
+              onClick={() => setGame(false, 0, parseInt(sizeInput.toString()))}>
+              {gameState === -1 ? "Start" : "Restart"}
             </RectangleBtn>
           </SizedBox>
         </Row>
@@ -203,7 +204,9 @@ function App() {
 
         <Block h={20} />
         <Text1 color={useDarkModeValue(COLORS.dark_1, COLORS.white)}>
-          {gameState === 0
+          {gameState === -1
+            ? "Start the game!"
+            : gameState === 0
             ? "Playing"
             : gameState === 1
             ? "You Win!"

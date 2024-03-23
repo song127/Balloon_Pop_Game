@@ -39,21 +39,21 @@ const Container = styled.div<ItemProps>`
   }
 `;
 
-const BalloonIcon = styled(BalloonSvg)<{ svgColor?: string }>`
+const BalloonIcon = styled(BalloonSvg)<{ svgcolor: string }>`
   width: 70%;
   height: 70%;
 
   path {
-    stroke: ${({ svgColor }) => svgColor};
+    stroke: ${({ svgcolor }) => svgcolor};
   }
 `;
 
-const PopIcon = styled(PopSvg)<{ svgColor?: string }>`
+const PopIcon = styled(PopSvg)<{ svgcolor: string }>`
   width: 70%;
   height: 70%;
 
   path {
-    stroke: ${({ svgColor }) => svgColor};
+    stroke: ${({ svgcolor }) => svgcolor};
   }
 
   animation: ${PopFrame} 0.3s forwards, ${FadeOutFrame} 1s 0.8s forwards;
@@ -63,7 +63,6 @@ export default function Balloon({
   isVisible = false,
   onClick,
   isClicked,
-  setIsClicked,
   ...props
 }: BalloonProps) {
   const [poped, setPoped] = useState<boolean>(false);
@@ -84,9 +83,9 @@ export default function Balloon({
   return (
     <Container isDarkMode={isDarkMode} key={props.key} onClick={onClick}>
       {isVisible ? (
-        <BalloonIcon className={"balloon-valid"} svgColor={svgColor} />
+        <BalloonIcon className={"balloon-valid"} svgcolor={svgColor} />
       ) : (
-        poped && <PopIcon svgColor={svgColor} />
+        poped && <PopIcon svgcolor={svgColor} />
       )}
     </Container>
   );
