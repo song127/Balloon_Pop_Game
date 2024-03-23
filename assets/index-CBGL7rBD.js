@@ -53,7 +53,7 @@ Error generating stack: `+o.message+`
     min-height: 100vh;
     max-height: max-content;
 
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 
     ${({main:e,cross:t,backColor:n})=>It`
         justify-content: ${e};
