@@ -24,7 +24,7 @@ export const ModalType = {
 
 export const ModalContext = createContext({
   isModalOpen: false,
-  openModal: ({ ...params }: ModalParams) => {},
+  openModal: ({ ...params }: ModalParams) => {console.log(params)},
   closeModal: () => {},
   type: ModalType.Basic,
   data: {},
