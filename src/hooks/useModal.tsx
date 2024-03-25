@@ -4,7 +4,7 @@ import {
   ModalType,
 } from "@components/provider/ModalProvider";
 import { useContext } from "react";
-import { ModalData } from '../components/provider/ModalProvider';
+import { ModalData } from '@components/provider/ModalProvider';
 
 export default function useModal() {
   const { isModalOpen, openModal, closeModal, type, data } =
