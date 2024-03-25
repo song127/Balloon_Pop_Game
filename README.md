@@ -1,6 +1,6 @@
-### 풍선 터뜨리기 게임
+#### Link: [GitHub Page](https://song127.github.io/Balloon_Pop_Game/)
 
-# Link: [GitHub Page](https://song127.github.io/Balloon_Pop_Game/)
+### 풍선 터뜨리기 게임
 
 - 사용자가 풍선을 터뜨리는 간단한 웹 게임입니다.
 - 사용자는 격자판에 있는 풍선을 클릭하여 터뜨릴 수 있으며, 풍선을 터뜨릴 때 상하좌우로 연결된 같은 색 풍선들도 함께 터집니다.
