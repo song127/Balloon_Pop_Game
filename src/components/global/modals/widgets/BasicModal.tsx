@@ -54,7 +54,7 @@ const CloseIcon = styled(CloseSvg)`
   cursor: pointer;
 `;
 
-export default function BasicModal({ ...props }) {
+export default function BasicModal() {
   const { closeModal, data } = useModal();
   const innerRef = useRef<any>();
 
