@@ -3,6 +3,9 @@ interface BlockProps {
   h?: number | string;
 }
 
+/**
+ * 빈 공간을 만드는 컴포넌트
+ */
 function Block({ w = 0, h = 0 }: BlockProps) {
   return (
     <div

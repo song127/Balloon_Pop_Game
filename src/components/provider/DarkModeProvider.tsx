@@ -1,17 +1,11 @@
 import { createContext, useState, ReactNode } from "react";
 
-// export const ColorModeType = {
-//     Dark: "dark",
-//     Light: "light",
-//     Red: "red",
-// };
-
-interface ColorModeContextType {
+interface DarkModeContextType {
   isDarkMode: boolean;
   changeMode: () => void;
 }
 
-export const ColorModeContext = createContext<ColorModeContextType>({
+export const DarkModeContext = createContext<DarkModeContextType>({
   isDarkMode: false,
   changeMode: () => {
     return;
@@ -29,12 +23,12 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <ColorModeContext.Provider
+    <DarkModeContext.Provider
       value={{
         isDarkMode,
         changeMode,
       }}>
       {children}
-    </ColorModeContext.Provider>
+    </DarkModeContext.Provider>
   );
 }

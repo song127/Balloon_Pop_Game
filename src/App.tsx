@@ -26,7 +26,7 @@ const dy = [-1, 0, 1, 0];
 function App() {
   const { isDarkMode, changeMode } = useDarkMode();
 
-  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [isClicked, setIsClicked] = useState<boolean>(false); // 클릭 여부를 확인하여, 클릭 시에만 게임 애니메이션이 실행되도록 함
   const [size, setSize] = useState<number>(0);
   const [sizeInput, setSizeInput] = useState<number>(0);
   const [balloons, setBalloons] = useState<boolean[][]>([]);

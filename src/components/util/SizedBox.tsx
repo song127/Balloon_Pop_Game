@@ -4,7 +4,9 @@ interface SizedBoxProps {
   flex?: string;
   children: React.ReactNode;
 }
-
+/**
+ * 크기를 지정하는 컴포넌트
+ */
 function SizedBox({
   w = "max-content",
   h = "max-content",

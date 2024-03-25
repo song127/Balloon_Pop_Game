@@ -1,5 +1,8 @@
 import { LayerAlign } from "@components/util/WidgetUtils";
 
+/**
+ * 가로 배치를 쉽게하는 커스텀 컴포넌트
+ */
 function Row({
     flex = "",
     main = LayerAlign.center,
