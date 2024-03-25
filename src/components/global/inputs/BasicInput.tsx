@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import COLORS from "@styles/globalColor";
+import COLORS from "@styles/globalColors";
 
 interface BackboardProps {
   round: string;

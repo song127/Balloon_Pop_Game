@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import ModalWrapper from "@components/global/modals/widgets/ModalWrapper";
-import COLORS from "@styles/globalColor";
+import COLORS from "@styles/globalColors";
 import { FadeInKf, TopToBottomKf } from "@utils/animations";
 import { useEffect, useRef } from "react";
 import useModal from "@hooks/useModal";

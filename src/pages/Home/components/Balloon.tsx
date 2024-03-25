@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import COLORS from "@styles/globalColor";
+import COLORS from "@styles/globalColors";
 import { useDarkMode } from "@hooks/useDarkMode";
 import { useDarkModeValue } from "@hooks/useDartModeValue";
 import BalloonSvg from "@assets/icons/ic-balloon.svg?react";

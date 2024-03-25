@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import COLORS from "@styles/globalColor";
+import COLORS from "@styles/globalColors";
 import { FONTS } from "@styles/globalFonts";
 
 interface ContainerProps {

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import COLORS from "@styles/globalColor";
+import COLORS from "@styles/globalColors";
 import { useDarkModeValue } from "@hooks/useDartModeValue";
-import Balloon from "@components/global/items/Balloon";
+import Balloon from "@pages/Home/components/Balloon";
 import { Fragment } from "react/jsx-runtime";
 
 interface ContainerProps {
