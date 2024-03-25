@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { LayerAlign } from "@component/util/WidgetUtils";
-import COLORS from "@style/globalColor";
-import { useDarkModeValue } from "@hook/useDartModeValue";
+import { LayerAlign } from "@components/util/WidgetUtils";
+import COLORS from "@styles/globalColor";
+import { useDarkModeValue } from "@hooks/useDartModeValue";
 
 interface BasicLayoutProps {
     main?: string;

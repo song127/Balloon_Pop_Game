@@ -1,4 +1,4 @@
-import { useDarkMode } from "@hook/useDarkMode";
+import { useDarkMode } from "@hooks/useDarkMode";
 
 export function useDarkModeValue(color1: any, color2: any) {
   const { isDarkMode } = useDarkMode();

@@ -1,30 +1,62 @@
-# React + TypeScript + Vite
+### 풍선 터뜨리기 게임
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- 사용자가 풍선을 터뜨리는 간단한 웹 게임입니다.
+- 사용자는 격자판에 있는 풍선을 클릭하여 터뜨릴 수 있으며, 풍선을 터뜨릴 때 상하좌우로 연결된 같은 색 풍선들도 함께 터집니다.
+- 사용자는 가장 많은 풍선을 터뜨릴 수 있는 순서대로 풍선을 클릭해야 합니다.
 
-Currently, two official plugins are available:
+### 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **격자 사이즈 조정 및 시작(재시작)**: 격자판의 사이즈를 사용자가 입력합니다. 그 후 Start(Restart)를 눌러 게임을 시작(재시작)합니다.
 
-## Expanding the ESLint configuration
+2. **풍선 터뜨리기**: 격자판에 있는 풍선을 클릭하여 터뜨립니다. 클릭한 풍선과 상하좌우로 연결된 같은 색 풍선들이 함께 터집니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+3. **게임 종료**: 조건에 맞지 않는 풍선을 클릭하면 게임에서 패배합니다.
 
-- Configure the top-level `parserOptions` property like this:
+4. **다크 테마 토글**: 화면의 테마를 다크 모드로 전환하거나 원래의 테마로 변경할 수 있는 토글 버튼을 제공합니다.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+5. **게임 URL 공유**: 게임을 현재 상태로 공유할 수 있는 URL을 제공합니다.
+
+### 기술 스택
+
+- Vite
+- React
+- Emotion
+- TypeScript
+
+### 시작
+
+1. **NPM 설치**: 프로젝트 디렉토리에서 아래 명령을 실행하여 필요한 NPM을 설치합니다.
+   ```
+   npm install
+   ```
+
+2. **로컬 서버 실행**: 아래 명령을 실행하여 개발용 로컬 서버를 시작합니다.
+   ```
+   npm run dev
+   ```
+
+3. **게임 플레이**: 브라우저에서 [GitHub Page](https://song127.github.io/Balloon_Pop_Game/)으로 이동하여 게임을 플레이합니다.
+
+### 프로젝트 구조
+
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+📦src
+ ┣ 📂assets: 리소스들 포함
+ ┃ ┣ 📂icons: 아이콘 리소스들 저장
+ ┃ ┗ 📂imgs: 이미지 리소스들 저장
+ ┣ 📂components: 컴포넌트들 포함
+ ┃ ┣ 📂global: 전역적으로 사용되는 컴포넌트들 저장
+ ┃ ┃ ┣ 📂btns: 버튼 컴포넌트들
+ ┃ ┃ ┣ 📂inputs: 입력 컴포넌트들
+ ┃ ┃ ┣ 📂items: 특정 역할을 하는 컴포넌트들
+ ┃ ┃ ┣ 📂layouts: 레이아웃 컴포넌트들
+ ┃ ┃ ┗ 📂modals: 모달 컴포넌트들
+ ┃ ┣ 📂provider: 상태 관리 프로바이더 컴포넌트들
+ ┃ ┗ 📂util: UI 구성과 관리를 위한 유틸리티 컴포넌트 및 함수들
+ ┣ 📂hooks: React 커스텀 훅
+ ┣ 📂styles: 전역 CSS 파일들 포함
+ ┣ 📂utils: 유틸리티 함수 및 도구들 포함
+ ┣ 📜App.tsx
+ ┣ 📜main.tsx
+ ┗ 📜vite-env.d.ts
+```

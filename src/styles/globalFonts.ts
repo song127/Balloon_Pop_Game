@@ -1,4 +1,4 @@
-import COLORS from "@style/globalColor";
+import COLORS from "@styles/globalColor";
 
 class CustomFont {
   [key: string]: any;

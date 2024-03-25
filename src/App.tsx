@@ -1,20 +1,20 @@
-import BasicLayout from "@component/global/layouts/BasicLayout";
-import SwitchBtn from "@component/global/btns/SwitchBtn";
-import SizedBox from "@component/util/SizedBox";
-import { useDarkMode } from "@hook/useDarkMode";
-import GlobalStyle from "@style/globalStyle";
+import BasicLayout from "@components/global/layouts/BasicLayout";
+import SwitchBtn from "@components/global/btns/SwitchBtn";
+import SizedBox from "@components/util/SizedBox";
+import { useDarkMode } from "@hooks/useDarkMode";
+import GlobalStyle from "@styles/globalStyle";
 import styled from "@emotion/styled";
-import { FONTS, FontProps } from "@style/globalFonts";
-import COLORS from "@style/globalColor";
-import Block from "@component/util/Block";
+import { FONTS, FontProps } from "@styles/globalFonts";
+import COLORS from "@styles/globalColor";
+import Block from "@components/util/Block";
 import { useState, useEffect } from "react";
 import { useDarkModeValue } from "./hook/useDartModeValue";
-import RectangleBtn from "@component/global/btns/RectangleBtn";
-import BasicInput from "@component/global/BasicInput";
-import Row from "@component/util/Row";
-import { strDecode, strEncode } from "@util/helpers";
-import ElasticGridLayout from "@component/global/layouts/GridLayout";
-import InnerLayout from "@component/global/layouts/InnerLayout";
+import RectangleBtn from "@components/global/btns/RectangleBtn";
+import BasicInput from "@components/global/inputs/BasicInput";
+import Row from "@components/util/Row";
+import { strDecode, strEncode } from "@utils/helpers";
+import ElasticGridLayout from "@components/global/layouts/GridLayout";
+import InnerLayout from "@components/global/layouts/InnerLayout";
 
 const Text1 = styled.p<FontProps>`
   ${({ color }) => FONTS.M26.withParams({ color })}

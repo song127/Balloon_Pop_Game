@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import COLORS from "@style/globalColor";
-import { FONTS } from "@style/globalFonts";
+import COLORS from "@styles/globalColor";
+import { FONTS } from "@styles/globalFonts";
 
 interface ContainerProps {
   disabled: boolean;

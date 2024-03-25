@@ -1,6 +1,6 @@
 import { Global, css } from "@emotion/react";
-import reset from "@style/reset";
-import COLORS from "@style/globalColor";
+import reset from "@styles/reset";
+import COLORS from "@styles/globalColor";
 
 const initCss = css`
   ${reset}

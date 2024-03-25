@@ -1,4 +1,4 @@
-import { LayerAlign } from "@component/util/WidgetUtils";
+import { LayerAlign } from "@components/util/WidgetUtils";
 
 function Row({
     flex = "",

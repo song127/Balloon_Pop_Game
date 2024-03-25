@@ -1,4 +1,4 @@
-import { ColorModeContext } from "@component/provider/DarkModeProvider";
+import { ColorModeContext } from "@components/provider/DarkModeProvider";
 import { useContext } from "react";
 
 export function useDarkMode() {

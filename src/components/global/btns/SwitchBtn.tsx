@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import COLORS from "@style/globalColor";
+import COLORS from "@styles/globalColor";
 
 interface ContainerProps {
   backColor: string;

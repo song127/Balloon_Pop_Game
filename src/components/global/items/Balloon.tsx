@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import COLORS from "@style/globalColor";
-import { useDarkMode } from "@hook/useDarkMode";
-import { useDarkModeValue } from "@hook/useDartModeValue";
+import COLORS from "@styles/globalColor";
+import { useDarkMode } from "@hooks/useDarkMode";
+import { useDarkModeValue } from "@hooks/useDartModeValue";
 import BalloonSvg from "@assets/icons/ic-balloon.svg?react";
 import PopSvg from "@assets/icons/ic-pop.svg?react";
 import { useEffect, useState } from "react";
-import { FadeOutFrame, PopFrame } from "@util/animations";
+import { FadeOutFrame, PopFrame } from "@utils/animations";
 
 interface ItemProps {
   isDarkMode: boolean;
