@@ -8,7 +8,7 @@ import { FONTS, FontProps } from "@styles/globalFonts";
 import COLORS from "@styles/globalColor";
 import Block from "@components/util/Block";
 import { useState, useEffect } from "react";
-import { useDarkModeValue } from "./hook/useDartModeValue";
+import { useDarkModeValue } from "@hooks/useDartModeValue";
 import RectangleBtn from "@components/global/btns/RectangleBtn";
 import BasicInput from "@components/global/inputs/BasicInput";
 import Row from "@components/util/Row";
