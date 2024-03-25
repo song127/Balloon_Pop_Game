@@ -1,3 +1,4 @@
+import RootModal from "@components/global/modals/RootModal";
 import { ReactNode, createContext, useState } from "react";
 
 export interface ModalData {
@@ -55,7 +56,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         type,
         data,
       }}>
-      {/* <RootModal /> */}
+      <RootModal />
       {children}
     </ModalContext.Provider>
   );

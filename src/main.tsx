@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { DarkModeProvider } from "@components/provider/DarkModeProvider.tsx";
+import RootUIProvider from "@components/provider/RootUIProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <DarkModeProvider>
+  <RootUIProvider>
     <App />
-  </DarkModeProvider>
+  </RootUIProvider>
 );

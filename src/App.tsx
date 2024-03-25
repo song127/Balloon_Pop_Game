@@ -12,9 +12,11 @@ import { useDarkModeValue } from "@hooks/useDartModeValue";
 import RectangleBtn from "@components/global/btns/RectangleBtn";
 import BasicInput from "@components/global/inputs/BasicInput";
 import Row from "@components/util/Row";
-import { strDecode, strEncode } from "@utils/helpers";
 import ElasticGridLayout from "@components/global/layouts/GridLayout";
 import InnerLayout from "@components/global/layouts/InnerLayout";
+import useModal from "@hooks/useModal";
+import { ModalType, ModalData } from "@components/provider/ModalProvider";
+import { strDecode, strEncode } from "@utils/helpers";
 
 const Text1 = styled.p<FontProps>`
   ${({ color }) => FONTS.M26.withParams({ color })}
@@ -25,8 +27,9 @@ const dy = [-1, 0, 1, 0];
 
 function App() {
   const { isDarkMode, changeMode } = useDarkMode();
+  const { openModal, closeModal } = useModal();
 
-  const [isClicked, setIsClicked] = useState<boolean>(false); // 클릭 여부를 확인하여, 클릭 시에만 게임 애니메이션이 실행되도록 함
+  const [isClicked, setIsClicked] = useState<boolean>(false); // 클릭 여부를 확인하여, 클릭 시에만 Pop 애니메이션이 실행되도록 함
   const [size, setSize] = useState<number>(0);
   const [sizeInput, setSizeInput] = useState<number>(0);
   const [balloons, setBalloons] = useState<boolean[][]>([]);
@@ -157,6 +160,38 @@ function App() {
   useEffect(() => {
     updateUrl(gameState, size, balloons);
   }, [balloons]);
+
+  useEffect(() => {
+    if (gameState === 1) {
+      console.log("You Win!");
+      const data: ModalData = {
+        title: "You Win!",
+        content: "You win the game!\nClick restart to play again.",
+        onConfirm() {
+          closeModal();
+        },
+        onCancel() {
+          closeModal();
+        },
+      };
+
+      openModal({ type: ModalType.Basic, data });
+    } else if (gameState === 2) {
+      console.log("You Lose!");
+      const data: ModalData = {
+        title: "You Lose!",
+        content: "You lose the game!\nClick restart to play again.",
+        onConfirm() {
+          closeModal();
+        },
+        onCancel() {
+          closeModal();
+        },
+      };
+
+      openModal({ type: ModalType.Basic, data });
+    }
+  }, [gameState]);
 
   return (
     <>

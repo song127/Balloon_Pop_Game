@@ -5,7 +5,7 @@ import { useDarkModeValue } from "@hooks/useDartModeValue";
 import BalloonSvg from "@assets/icons/ic-balloon.svg?react";
 import PopSvg from "@assets/icons/ic-pop.svg?react";
 import { useEffect, useState } from "react";
-import { FadeOutFrame, PopFrame } from "@utils/animations";
+import { FadeOutKf, PopKf } from "@utils/animations";
 
 interface ItemProps {
   isDarkMode: boolean;
@@ -57,7 +57,7 @@ const PopIcon = styled(PopSvg)<{ svgcolor: string }>`
     stroke: ${({ svgcolor }) => svgcolor};
   }
 
-  animation: ${PopFrame} 0.3s forwards, ${FadeOutFrame} 1s 0.8s forwards;
+  animation: ${PopKf} 0.3s forwards, ${FadeOutKf} 1s 0.8s forwards;
 `;
 
 export default function Balloon({

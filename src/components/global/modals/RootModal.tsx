@@ -1,5 +1,6 @@
 import { ModalType } from "@components/provider/ModalProvider";
 import useModal from "@hooks/useModal";
+import BasicModal from "@components/global/modals/widgets/BasicModal";
 
 function RootModal() {
     const { isModalOpen, type } = useModal();

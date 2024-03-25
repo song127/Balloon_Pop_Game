@@ -6,12 +6,13 @@ const Layout = styled.div`
     align-items: center;
 
     width: 100%;
-    max-width: 800px;
+    max-width: 840px;
     height: 100%;
     min-height: 100vh;
     max-height: max-content;
 
-    margin-top: 70px;
+    margin-top: 40px;
+    padding: 0 20px;
 
     transition: all 0.3s ease-in-out;
 `;
